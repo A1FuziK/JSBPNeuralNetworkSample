@@ -60,7 +60,7 @@
             for (i = 0 ; i < this.layers ; i++)
                 for (j = 0 ; j < this.layerSpec[i] && i > 0 ; j++)
                     for (k = 0 ; k < (this.layerSpec[i - 1] + 1) ; k++)
-                        this.weight[i][j][k] = Math.random() * 2.0;
+                        this.weight[i][j][k] = (-1.0 + (Math.random() * 2.0));
 
             //console.log(this.weight);
 
