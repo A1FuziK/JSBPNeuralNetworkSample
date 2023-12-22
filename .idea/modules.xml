@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/JSNetworkSample.iml" filepath="$PROJECT_DIR$/.idea/JSNetworkSample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../JSBPNeuralNetworkSample/.idea/JSBPNeuralNetworkSample.iml" filepath="$PROJECT_DIR$/../JSBPNeuralNetworkSample/.idea/JSBPNeuralNetworkSample.iml" />
     </modules>
   </component>
 </project>

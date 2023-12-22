@@ -86,7 +86,7 @@
         }
 
         transferFunctionDerivative(input) {
-            return ((1.0 - this.transferFunction(input)) * this.transferFunction(input));
+            return ((1.0 - this.transferFunction(input)) * this.transferFunction(input)); //sigmoid derivative
         }
 
         //input: Float64Array
