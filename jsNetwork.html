@@ -86,7 +86,7 @@
         }
 
         transferFunctionDerivative(input) {
-            return ((1.0 - input) * input);
+            return ((1.0 - this.transferFunction(input)) * this.transferFunction(input));
         }
 
         //input: Float64Array
@@ -125,8 +125,8 @@
             //Calculate output differences
             for(i = 0; i < this.layerSpec[this.layers-1]; i++) {
                 this.delta[this.layers - 1][i] =
-                    this.transferFunctionDerivative(
-                        this.out[this.layers - 1][i]) * (target[i] - this.out[this.layers - 1][i]);
+                    this.transferFunctionDerivative(this.out[this.layers - 1][i])
+                        * (target[i] - this.out[this.layers - 1][i]);
             }
 
             //Calculate differences for previous layers
@@ -136,7 +136,8 @@
                     for(k = 0; k < this.layerSpec[i + 1]; k++) {
                         sum += this.delta[i + 1][k] * this.weight[i + 1][k][j];
                     }
-                    this.delta[i][j] = this.transferFunctionDerivative(this.out[i][j]) * sum;
+                    this.delta[i][j] = this.transferFunctionDerivative(this.out[i][j])
+                        * sum;
                 }
             }
 
@@ -224,7 +225,7 @@
         //16 output bit
 
         //Creates a new network
-        let bpNetwork = new BPNeuralNetwork(0.1,0.5,4,[4,8,8,16]);
+        let bpNetwork = new BPNeuralNetwork(0.1,0.5,4,[4,64,64,16]);
 
         //Input data width "should" fit with the input bits.
         //The lines number should fit with the lines of the out data (requested result).
@@ -328,7 +329,7 @@
         console.log(weightString);
         console.log("end weightString");
 
-        bpNetwork = new BPNeuralNetwork(0.1,0.5,4,[4,8,8,16]);
+        bpNetwork = new BPNeuralNetwork(0.1,0.5,4,[4,64,64,16]);
         bpNetwork.setNetWeights(weightString);
 
         console.log("Testing the network...");
